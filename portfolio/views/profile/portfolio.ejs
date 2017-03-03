@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>My Profile</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+  <script src="js/vendor/jquery.hashchange.min.js"></script>
+  <script src="js/vendor/jquery.easytabs.min.js"></script>
+
+  <script src="js/main.js"></script>
+
+  <style media="screen">
+    
+    .card .card-title{
+      color: #02695e;
+      font-size: 2em;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .card{  
+      text-align: center;
+      padding: 15px;
+      text-transform: uppercase;
+    }
+    
+
+  </style>
+</head>
+  <body class="bg-fixed bg-1">
+   <div class="main-container">
+    <div class="main wrapper clearfix">
+      <!-- Header Start -->
+        <header id="header">
+            <div id="logo">
+              
+            </div>
+        </header>
+        <!-- Header End -->
+        <!-- Main Tab Container -->
+        <div id="tab-container" class="tab-container">
+          <!-- Tab List -->
+            <ul class='etabs'>
+                <li class='tab' id="tab-about">
+                  <a href="/about"><i class="icon-user"></i><span>About Me</span></a>
+                </li>
+                <li class='tab active'>
+                  <a href="/portfolio"><i class="icon-heart"></i><span>My Portfolio</span></a>
+                </li>
+                <li class='tab' id="tab-about">
+                  <a href="/work"><i class="icon-heart"></i><span>Add Work</span></a>
+                </li>
+                <li class='tab' id="tab-about">
+                  <a href="/upload"><i class="icon-user"></i><span>Upload Photo</span></a>
+                </li>
+                <li class='tab' id="tab-about">
+                  <a href="/logout"><i class="icon-globe"></i><span>Logout</span></a>
+                </li>
+            </ul>
+          <!-- End Tab List -->
+            <div id="tab-data-wrap">
+              
+              <!-- Portfolio Tab Data -->
+                <div id="portfolio">
+
+                <% if(error){ %>
+                    <h4 style="position:relative;left:270px">You Haven't Created A Portfolio Yet.</h4>
+                    <h4 style="position:relative;left:180px">To Create A Portfolio Upload At Least One Project,<h4 />
+                    <h4 style="position:relative;left:168px">And Provide A Description For Your Portfolio As Well.</h4>
+                    <h4 style="position:relative;left:320px">To Create One <a href="/work" >Click Here</a></h4>
+
+                    <% } %>
+
+                </section>
+
+                <% if (!error){ %>
+                  <% if(desc) { %>
+                <section class="clearfix">
+                
+                <h4 class="card col-xs-4" name="desc">Portfolio Describtion</h4>
+                <h4><%= desc%></h4>
+                <hr>
+                </section>
+                <% } %>
+                <% } %>
+
+                <section class="clearfix">
+
+                <% for(var i = 0 ; i < result.length ; i++){%>
+                
+                  <div class="g1">
+                            <div class="image">
+                                
+                                <div class="card col-xs-4">
+                                  <h4 class="card-title"><%= result[i].title %></h4>
+                                  <img src="/images/work.jpg" alt="">
+                                </div>
+
+                                <div class="image-overlay">
+                                    <div class="image-link">
+                                        <a href="<%= result[i].link %>" class="btn">Visit</a>"
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                  </div>
+                 
+                  <% } %>
+
+                </div>
+              <!-- End Portfolio Data -->
+              <!-- Contact Tab Data -->
+                
+              <!-- End Contact Data -->
+            </div>
+        </div>
+        <!-- End Tab Container -->
+        <footer>
+            <p>
+                Media Enginnering And Technology Students' Portfolio System
+            </p> 
+        </footer>
+    </div><!-- #main -->
+</div><!-- #main-container -->
+
+
+
+</body>
+</html>
